@@ -25,11 +25,9 @@ public class Reducer2 extends Reducer<Text, Text, Text, Text> {
 			double v = Double.parseDouble(i.next().toString());
 			sum += v;
 		}
-		Text outputKey = new Text();
 		Text outputValue = new Text();
-		outputKey.set(key);
 		outputValue.set("V\t" + key.toString() + "\t" + Double.toString(sum));
-		context.write(outputKey, outputValue);	
+		context.write(new Text(), outputValue);	//key is empty
 	}
 }
 
